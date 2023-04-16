@@ -8,9 +8,7 @@ search: false
   font-weight: normal;
   font-style: normal;
 }
-body {
-  font-family: 'Dovemayo_gothic';
-}
+
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
