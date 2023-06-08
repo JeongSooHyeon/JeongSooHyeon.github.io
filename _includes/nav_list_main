@@ -26,7 +26,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "STL" %}
-                        <li><a href="/categories/stl" class="">C++ STL & 표준 ({{category[1].size}})</a></li>
+                        <li><a href="/categories/stl" class="">C++ STL ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
