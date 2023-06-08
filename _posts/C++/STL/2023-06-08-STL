@@ -1,0 +1,24 @@
+---
+title:  "[뇌를 자극하는 C++ STL] Chapter1_연산자 오버로딩"
+
+categories:
+  - STL
+tags:
+  - [Programming, Cpp, STL]
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-06-08
+last_modified_at: 2023-06-08
+---
+<br>
+
+## 16-1 C++에서의 형 변환 연산
+
+C++ 진영에서 C스타일 형 변환 연산자를 '오래된 C 스타일 형 변환 연산자'라고 한다.<br>
+C++에서는 새로운 형 변환 연산자와 규칙을 제공한다.
+
+<br>
+
+**모기를 잡으려면 모기약을 써야지 사람 잡는 약을 쓰면 되나**
