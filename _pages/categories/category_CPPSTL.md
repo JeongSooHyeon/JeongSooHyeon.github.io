@@ -1,7 +1,7 @@
 ---
 title: "뇌를 자극하는 C++ STL"
 layout: archive
-permalink: categories/cpp
+permalink: categories/STL
 author_profile: true
 sidebar_main: true
 ---
