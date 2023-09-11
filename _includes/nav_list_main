@@ -45,6 +45,14 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+        <span class="nav__sub-title">Udemy Unity</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Udemy-PreJobTrainning" %}
+                        <li><a href="/categories/udemy-pre" class="">10주 완성 프로젝트 캠프 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
       </li>
   </ul>
 </nav>
