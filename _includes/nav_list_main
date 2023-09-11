@@ -19,7 +19,7 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
                     {% if category[0] == "Cpp" %}
-                        <li><a href="/categories/cpp" class="">C ++ ({{category[1].size}})</a></li>
+                        <li><a href="/categories/cpp" class="">C++ ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -49,7 +49,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Udemy-PreJobTrainning" %}
-                        <li><a href="/categories/udemy-pre" class="">10주 완성 프로젝트 캠프 ({{category[1].size}})</a></li>
+                        <li><a href="/categories/udemy-pre" class="">사전 직무 교육 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
