@@ -48,7 +48,7 @@
         <span class="nav__sub-title">Udemy Unity</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Udemy-PreJobTrainning" %}
+                    {% if category[0] == "UdemyXSniperFactory-PreJobTrainning" %}
                         <li><a href="/categories/udemy-pre" class="">사전 직무 교육 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
