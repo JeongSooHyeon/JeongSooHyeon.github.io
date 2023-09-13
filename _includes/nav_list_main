@@ -45,7 +45,7 @@
                     {% endif %}
                 {% endfor %}
             </ul>
-        <span class="nav__sub-title">Udemy Unity</span>
+        <span class="nav__sub-title">Udemy X SniperFactory-Unity</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "UdemyXSniperFactory-PreJobTrainning" %}
