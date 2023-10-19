@@ -26,7 +26,7 @@ UI&UX, FX
 
 ## 구현한 내용
 
-1\. **HUD**
+### 1\. HUD
 
 UIManager.cs (싱글톤 구현)
 
@@ -221,7 +221,7 @@ public class UIManager : MonoBehaviour
 -	LoadMain() : 재시작 버튼 클릭 시 Main 씬 로드
 -	Exit() : 나가기 버튼 클릭 시 Start 씬 로드
 
-2\. **게임 시작 UI**
+### 2\. 게임 시작 UI
  
 GameStart.cs 
 
@@ -319,6 +319,50 @@ public class GameStart : MonoBehaviour
 -	아니오 선택 시, 팝업창 끄기
 
 
-3\. **게임 엔딩 UI**
+### 3\. 게임 엔딩 UI
 
-4\. **Item 이펙트**
+GameClear.cs
+
+```c++
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameClear : MonoBehaviour
+{
+    // 처음으로 버튼 클릭, 시작 Scene 로드
+    public void LoadStart()
+    {
+        SceneManager.LoadScene("Start");
+    }
+}
+```
+
+**게임 엔딩 화면**
+
+![Ending](https://github.com/JeongSooHyeon/Algorithm/assets/82567002/0a1edd1f-4194-4269-9897-8ef3c7d90b37){: width="100%", height="100%"}
+
+**히든 엔딩 화면**
+
+![HiddenEnding](https://github.com/JeongSooHyeon/Algorithm/assets/82567002/cb8fdda1-4502-4f66-9e6a-ed46e54b1e97){: width="100%", height="100%"}
+
+- 처음으로 버튼 클릭 시, Start 씬 로드
+
+### 4\. Item 이펙트
+
+Item(열쇠, 반지, 액자)에 Light, Particle System 컴포넌트를 추가하여 아이템 강조 효과 적용
+
+**Items의 계층 구조**
+
+![Item_Effect](https://github.com/JeongSooHyeon/Algorithm/assets/82567002/9ec548f7-2eff-48eb-8449-4478049fdaf2){: width="30%", height="30%"}
+
+- 아이템에 빈 오브젝트를 추가하여 Light와 Particle System을 각각 넣었다 
+
+**Light와 Particle**
+
+![Item_Light](https://github.com/JeongSooHyeon/Algorithm/assets/82567002/8778dbb5-fc72-404c-aaf0-c2ae28ed1619){: width="50%", height="50%"}![Item_Particle](https://github.com/JeongSooHyeon/Algorithm/assets/82567002/9fc282de-34a6-47f9-8724-1a2783a071e4){: width="50%", height="50%"}
+
+**이펙트가 적용된 모습**
+
+![ItemEffect](https://github.com/JeongSooHyeon/Algorithm/assets/82567002/8778b332-bb92-47c8-8db8-0b2f7d6d4d61){: width="100%", height="100%"}
