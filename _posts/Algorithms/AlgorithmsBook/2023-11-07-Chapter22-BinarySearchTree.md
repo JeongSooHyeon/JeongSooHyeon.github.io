@@ -103,3 +103,90 @@ last_modified_at: 2023-11-07
 
 ## 22.5 풀이 : 너드인가, 너드가 아닌가? 2
 
+준비
+1. 입력이 두 개라는 점을 이용해 2차원 평면에 입력을 그려 보는 전략 사용
+2. 한 점 a가 다른 점 b보다 오른쪽 위에 있을 때, a가 b를 지배한다
+3. **결론 : 이 문제는 새 점이 하나 추가될 때마다 다른 점에 지배당하지 않는 점들의 수를 계산**
+
+문제 풀이
+1. 새 점이 하나 찍힐 때마다 기존 점들 중 이 점을 지배하는 점이 있는지 우선 확인
+    - 있다면 : 새 점 무시
+    - 없다면 : 기존 점들 중 새 점이 지배하는 점들 지우기
+2. **핵심 : 지배당하지 않는 점들만 모아서 x좌표가 증가하는 순서대로 정렬해 보면, y좌표는 항상 감소**
+3. 새 점이 주어졌을 때, 바로 오른쪽에 있는 점만을 확인하면 지배당하는지 판단 가능
+
+자료구조 정하기 : 바로 오른쪽에 있는 점을 찾는 연산, 점의 추가와 삭제 등을 빠르게 할 수 있는 자료구조<br>
+-> 이진 검색 트리(모든 연산 O(lgN) 시간)
+
+**점들의 목록을 갖고 있을 때 이들 중 하나가 새로운 점을 지배하는지를 확인하는 알고리즘 구현**
+
+STL의 균형 잡힌 이진 검색 트리 구현인 `map<int,int>`를 이용, `map<int,int>::lower_bound(x)`는 트리에 포함된 x 이상의 키 중 가장 작은 값을 돌려줌
+
+```c++
+// 현재 다른 점에 지배당하지 않는 점들의 목록 저장
+// coords[x] = y
+map<int,int> coords;
+// 새로운 점 (x,y)가 기존의 다른 점들에 지배당하는지 확인
+bool isDominated(int x, int y){
+    // x보다 오른쪽에 있는 점 중 가장 왼쪽에 있는 점 찾기
+    map<int,int>::iterator it = coords.lower_bound(x);
+
+    // 그런 점이 없으면 (x,y)는 지배당하지 않음
+    if(it == coords.end())
+        return false;
+
+    // 이 점은 x보다 오른쪽에 있는 점 중 가장 위에 있는 점이므로,
+    // (x,y)가 어느 점에 지배되려면 이 점에도 지배되어야 함
+    return y < it->second;
+}
+```
+
+**새로운 점에 지배당하는 점들 모두 삭제, 문제 해결 구현**
+
+바로 왼쪽에 있는 점에서부터 시작해 왼쪽으로 움직이면서 지배되는 점들 지워나가기
+
+```c++
+// 새로운 점(x,y)에 지배당하는 점들을 트리에서 지운다.
+void removeDominated(int x, int y){
+    map<int,int>::iterator it = coords.lower_bound(x);
+
+    // (x,y)보다 왼쪽에 있는는 점이 없다
+    if(it == coords.begin())
+        return;
+    --it;
+
+    // 반복문 불변식 : it는 (x,y)의 바로 왼쪽에 있는 점.
+    while(true){
+        // (x,y) 바로 왼쪽에 오는 점을 찾는다
+        // it가 표시하는 점이 (x,y)에 지배되지 않는다면 곧장 종료
+        if(it->second > y)
+            break;
+
+        // 이전 점이 더 없으므로 it만 지우고 종료
+        if(it == coords.begin()){
+            coords.erase(it);
+            break;
+        }
+
+        // 이전 점으로 이터레이터를 하나 옮겨 놓고 it를 지운다
+        else{
+            map<int,int>::iterator jt = it;
+            --jt;
+            coords.erase(it);
+            it = jt;
+        }
+    }
+}
+// 새 점 (x,y)가 추가되었을 때 coords 갱신
+// 다른 점에 지배당하지 않는 점들의 개수 반환
+int registered(int x, int y){
+    // (x,y)가 이미 지배당하는 경우에는 그냥 (x,y)를 버린다.
+    if(isDominated(x,y))
+        return coords.size();
+
+    // 기존에 있던 점 중 (x,y)에 지배당하는 점들을 지운다.
+    removeDominated(x,y);
+    coords[x] = y;
+    return coords.size();
+}
+```
