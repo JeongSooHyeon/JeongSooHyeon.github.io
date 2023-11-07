@@ -148,12 +148,12 @@ bool isDominated(int x, int y){
 ```c++
 // 새로운 점(x,y)에 지배당하는 점들을 트리에서 지운다.
 void removeDominated(int x, int y){
-    map<int,int>::iterator it = coords.lower_bound(x);
+    map<int,int>::iterator it = coords.lower_bound(x);  
 
     // (x,y)보다 왼쪽에 있는는 점이 없다
-    if(it == coords.begin())
+    if(it == coords.begin())    
         return;
-    --it;
+    --it;   // 내 왼쪽 점으로 이동
 
     // 반복문 불변식 : it는 (x,y)의 바로 왼쪽에 있는 점.
     while(true){
