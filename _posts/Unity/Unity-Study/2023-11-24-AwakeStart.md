@@ -21,8 +21,8 @@ last_modified_at: 2023-11-24
 ## 공통점
 둘 다 MonoBehaviour 클래스가 초기화 될 때 호출되는 이벤트 함수.<br>
 ## 차이점 
-- Awake가 먼저 호출 되고 Start가 호출
-- Awake는 Start와 달리 스크립트가 비활성화 상태일 때도 호출 
+1. Awake가 먼저 호출 되고 Start가 호출
+2. Awake는 Start와 달리 스크립트가 비활성화 상태일 때도 호출 
 
 ## Awake() 사용 방법
 Awake는 스크립트와 연결된 GameObejct가 인스턴스화 되거나, 스크립트가 처음 로드될 때 호출됨.<br>
