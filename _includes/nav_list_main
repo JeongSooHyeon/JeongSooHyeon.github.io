@@ -11,6 +11,28 @@
             📂 <span style="font-family:'Dovemayo_gothic';">전체 글 수</style> <span style="font-family:'Dovemayo_gothic';">{{sum}}</style> <span style="font-family:'Dovemayo_gothic';">개</style> 
       </li>
       <li>
+        <span class="nav__sub-title">Unity</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Reagain" %}
+                        <li><a href="/categories/reagain" class="">Unity 3D 포트폴리오 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "UnityStudy" %}
+                        <li><a href="/categories/unitystudy" class="">Unity 공부 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "UnityOptimization" %}
+                        <li><a href="/categories/unityoptimization" class="">최적화 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#-->
         <span class="nav__sub-title">C/C++/C#</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
