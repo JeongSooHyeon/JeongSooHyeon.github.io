@@ -1,9 +1,8 @@
-
 ---
 title:  "[Unity 공부] Awake()와 Start(), OnEnable()"
 
 categories:
-  - Unity
+  - UnityStudy
 tags:
   - [Programming, C#, Unity]
 

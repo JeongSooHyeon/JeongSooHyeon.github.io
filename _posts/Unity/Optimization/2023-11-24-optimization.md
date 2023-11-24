@@ -1,9 +1,8 @@
-
 ---
 title:  "[Unity 최적화]"
 
 categories:
-  - Unity
+  - UnityOptimization
 tags:
   - [Programming, C#, Unity]
 
