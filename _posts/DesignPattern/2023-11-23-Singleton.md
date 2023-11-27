@@ -39,5 +39,40 @@ race condition :
 mutex lock, unlock : 
 Instance() 메서드 : 
 
+## DontDestroyOnLoad(GameObject obj)
+
+```c++
+void Awake(){
+  if(_instance == null){
+    _instance = this;
+    DontDestroyOnLoad(this.gameObject);
+  }
+  else{
+    if(this != _instance){
+      Destroy(this.gameObject);
+    }
+  }
+}
+```
+
+- `DontDestroyOnLoad(this.gameObject);` : 이 객체를 가진 Scene이 종료를 할 때 이 객체는 Destroy하지 말아라.
+- Scene이 다시 넘어왔을 때 새로생긴 this가 기존 _instance랑 다르면 기존 거 남기고 새로 생긴 건 없애라
+
+### DontDestroyOnLoad 주의
+
+GameManager에 Scene 전환 스크립트를 넣으면 문제가 생김
+
+가자
+왱
+낑낑이 하러
+꼬추 얌전한데 ?
+수형이 쉬어야지
+아모메스
+화내서
+절대^3~
+공부해야 돼
+모리로스
+귀여워
+
 ## 싱글턴 패턴 예시
 
