@@ -64,6 +64,18 @@ void Awake(){
 
 GameManager에 Scene 전환 스크립트를 넣으면 문제가 생김
 
+## Additive Loading
+
+기본적으로는 화면에는 1개의 Scene이 로드되고, 다른 Scene을 다시 로드하는 방식으로 Scene을 교체한다.<br>
+
+Additive Scene은 기존 Scene에 Scene을 추가할 수도 있다.
+- 예) 말풍선 모양으로 상상하는 Scene
+
+## UnloadSceneAsync()
+
+Scene 삭제
+- 비동기식이므로 완료 시간 보장되지 않음
+- 로드할 장면이 없으면 수행 불가. 예를 들어 단일 Scene 프로젝트에서는 이 정적 멤버를 사용할 수 없다.
 
 ## 싱글턴 패턴 예시
 
@@ -103,4 +115,9 @@ SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 ```
 
 추가된 씬에서 싱글톤 객체 사용 가능, 기존 씬의 다른 오브젝트에 할당돼 있는 스크립트도 사용 가능
+
+싱글턴 객체, DontDestroyOnLoad(), Additive Loading을 사용
+
+- 기존 Scene에 새로운 Scene을 추가
+- 새로 추가되는 Scene에는 GameManager(싱글턴 패턴)가 없지만 기존 Scene에 있는 DontDestroyOnLoad로 GameManager가 있기 때문에 사용 가능
 
