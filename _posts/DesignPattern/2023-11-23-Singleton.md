@@ -20,6 +20,8 @@ Singleton Pattern : <u>오직 한 개의 클래스 인스턴스</u>만을 갖도
 
 ## Unity 안에서의 싱글턴 패턴 객체
 
+Manager류의 클래스, 오디오, Event 등 디바이스 I/O를 다루는 곳에서 자주 쓰임.
+
 1. 같은 씬 안에서의 데이터 공유
 2. 서로 다른 씬들간의 데이터 공유
 - Scene에 **빈 객체**를 생성한 후, 오직 하나의 객체만 생성되도록 만들고, **DontDestroyOnLoad 메서드**를 호출하여 Scene 변경 시에도 Destroy를 막아주는 형태로 구현
@@ -35,7 +37,7 @@ Singleton Pattern : <u>오직 한 개의 클래스 인스턴스</u>만을 갖도
 3. 멀티 쓰레드의 환경에서 문제 발생. 모든 곳에서 접근 가능하기 때문에 race condition 발생, 그걸 피하기 위해 필연적으로 mutex lock과 unlock을 반복해서 걸게 되어 코드 전체적으로 Performance가 떨어지는 문제 발생
 
 **참고**
-race condition : 
+race condition : 다중 프로그래밍 시스템이나 다중 처리기 시스템에서 두 명령어가 동시에 같은 기억 장소를 엑세스할 대 그들 사이의 경쟁에 의해 수행 결과를 예측할 수 없게 되는 것.
 mutex lock, unlock : 
 Instance() 메서드 : 
 
@@ -62,17 +64,43 @@ void Awake(){
 
 GameManager에 Scene 전환 스크립트를 넣으면 문제가 생김
 
-가자
-왱
-낑낑이 하러
-꼬추 얌전한데 ?
-수형이 쉬어야지
-아모메스
-화내서
-절대^3~
-공부해야 돼
-모리로스
-귀여워
 
 ## 싱글턴 패턴 예시
+
+1\. Audio를 다루기 위한 Manager 게임 오브젝트 생성
+
+공이 떨어지면서 바닥에 부딪히면 소리 재생 후 파괴
+
+공 프리팹에 MyAudioPlay.cs 추가
+```c#
+public class MyAudioPlay : MonoBehaviour {
+  public AudioClip clip;
+
+  void OnCollisionEnter(Collision collision){
+    AudioManager.Instance().Play(clip);
+    Destroy(this.gameObject);
+  }
+}
+```
+- 싱글톤 객체의 함수 호출 후 Destroy하면 됨
+
+2\. 싱글톤 패턴의 객체를 만들어 전역 변수로 사용
+
+DontDestroyOnLoad 사용
+
+3\. 남아있는 싱글톤 객체를 다른 Scene에서 사용하기
+
+**AddScene()** : 새로운 씬을 현재 씬에 추가적으로 로드
+```c#
+SceneManager.LoadScene("씬 이름", LoadSceneMode.Addtive); // Single은 기존 씬 닫음
+```
+- 예를 들어 말풍선 모양으로 상상하는 씬 같은 느낌
+
+**RemoveScene()** : 현재 활성화된 씬을 unload
+```c#
+SceneManager.UnloadSceneAsync("씬 이름");
+SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+```
+
+추가된 씬에서 싱글톤 객체 사용 가능, 기존 씬의 다른 오브젝트에 할당돼 있는 스크립트도 사용 가능
 
