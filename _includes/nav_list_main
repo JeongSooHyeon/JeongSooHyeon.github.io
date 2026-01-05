@@ -14,7 +14,7 @@
         <span class="nav__sub-title">코드잇</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "위클리_페이퍼" %}
+                    {% if category[0] == "WeeklyPaper" %}
                         <li><a href="/categories/codeit" class="">위클리 페이퍼 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
