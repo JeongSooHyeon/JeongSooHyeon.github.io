@@ -1,7 +1,7 @@
 ---
 title: "코드잇 - 위클리 페이퍼"
 layout: archive
-permalink: categories/codeit
+permalink: categories/weeklypapaer
 author_profile: true
 sidebar_main: true
 ---
