@@ -25,8 +25,12 @@
                     {% if category[0] == "Til" %}
                         <li><a href="/categories/til" class="">Today I Learned ({{category[1].size}})</a></li>
                     {% endif %}
-                     {% if category[0] == "Wil" %}
-                        <li><a href="/categories/til" class="">Weekly I Learned ({{category[1].size}})</a></li>
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Wil" %}
+                        <li><a href="/categories/wil" class="">Weekly I Learend ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
