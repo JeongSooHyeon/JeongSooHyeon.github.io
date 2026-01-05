@@ -1,5 +1,5 @@
 ---
-title: "TIL / WIL"
+title: "Today I Learned"
 layout: archive
 permalink: categories/til
 author_profile: true
