@@ -104,9 +104,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "게임 클라이언트 개발자 지망생"
+  name             : "백엔드 개발자 지망생"
   avatar           : "/assets/images/termoongchi.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "열심히 살자 취업하자"
+  bio              : "열심히 살자"
   #location         : "South Korea"
   links:
     - label: "Email"
