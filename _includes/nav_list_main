@@ -11,47 +11,15 @@
             📂 <span style="font-family:'Dovemayo_gothic';">전체 글 수</style> <span style="font-family:'Dovemayo_gothic';">{{sum}}</style> <span style="font-family:'Dovemayo_gothic';">개</style> 
       </li>
       <li>
-        <span class="nav__sub-title">Unity</span>
+        <span class="nav__sub-title">코드잇</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Reagain" %}
-                        <li><a href="/categories/reagain" class="">Unity 3D 포트폴리오 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "UnityStudy" %}
-                        <li><a href="/categories/unitystudy" class="">Unity 공부 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "UnityOptimization" %}
-                        <li><a href="/categories/unityoptimization" class="">최적화 ({{category[1].size}})</a></li>
+                    {% if category[0] == "위클리_페이퍼" %}
+                        <li><a href="/categories/codeit" class="">위클리 페이퍼 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
         <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#-->
-        <span class="nav__sub-title">C/C++/C#</span>
-            <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
-            <ul>
-                <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
-                <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
-                {% for category in site.categories %}
-                    {% if category[0] == "Cpp" %}
-                        <li><a href="/categories/cpp" class="">C++ ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "STL" %}
-                        <li><a href="/categories/stl" class="">C++ STL ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
         <span class="nav__sub-title">알고리즘</span>
             <ul>
                 {% for category in site.categories %}
@@ -73,14 +41,6 @@
                 {% for category in site.categories %}
                     {% if category[0] == "DesignPattern" %}
                         <li><a href="/categories/design_pattern" class="">Design Pattern ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        <span class="nav__sub-title">Udemy X SniperFactory-Unity</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "UdemyXSniperFactory-PreJobTrainning" %}
-                        <li><a href="/categories/udemy-pre" class="">사전 직무 교육 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
